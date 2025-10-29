@@ -1,14 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { UserRepository } from '../../authentication.repository';
 
 @Injectable()
 export class UsersService {
+  constructor(private readonly userRepository: UserRepository) {}
+
   findAll() {
-    return [{
-      id: "SOME UUID 2",
-      firstName: "Dentro de",
-      lastName: "AUTH microservice",
-      email: "this findsall USERS",
-      password: "auth/USERS"
-    }]
+    return this.userRepository.findAll();
   }
 }
