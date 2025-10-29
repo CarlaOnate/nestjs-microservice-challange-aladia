@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AuthenticationModule } from './authentication.module';
+import { AuthenticationModule } from './auth/authentication.module';
 import {MicroserviceOptions, Transport} from "@nestjs/microservices";
 
 async function bootstrap() {
