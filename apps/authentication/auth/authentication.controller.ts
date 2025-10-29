@@ -1,10 +1,8 @@
 import { Controller } from '@nestjs/common';
 import { MessagePattern, Payload } from '@nestjs/microservices';
 import { AuthenticationService } from './authentication.service';
-import {
-  AUTH_PATTERNS,
-  RegisterUserDto,
-} from '@app/contracts';
+import { RegisterUserDto } from '../../../common/dto';
+import { AUTH_PATTERNS } from '../../../common/constants'
 
 @Controller()
 export class AuthenticationController {

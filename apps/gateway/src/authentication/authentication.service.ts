@@ -1,10 +1,9 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { RegisterUserDto } from '../../dto/auth/register-authentication.dto';
-import { AUTH_CLIENT } from '../../constant';
+import { RegisterUserDto } from './users/dto/register-authentication.dto';
+import { AUTH_PATTERNS, AUTH_CLIENT } from '../../../../common/constants';
 import { ClientProxy } from '@nestjs/microservices';
-import { AUTH_PATTERNS,
-  UserDto as ClientUserDto,
-  RegisterUserDto as ClientRegisterUserDto } from '@app/contracts';
+import { UserDto as ClientUserDto,
+  RegisterUserDto as ClientRegisterUserDto } from '../../../../common/dto';
 
 @Injectable()
 export class AuthenticationService {

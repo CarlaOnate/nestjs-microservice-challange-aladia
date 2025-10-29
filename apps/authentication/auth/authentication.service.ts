@@ -1,7 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {
-  RegisterUserDto,
-} from '@app/contracts';
+import { RegisterUserDto } from '../../../common/dto';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from '../users/users.service';
 

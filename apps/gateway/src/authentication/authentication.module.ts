@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { AuthenticationService } from './services/auth/authentication.service';
-import { AuthenticationController } from './controllers/auth/authentication.controller';
+import { AuthenticationService } from './authentication.service';
+import { AuthenticationController } from './authentication.controller';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { AUTH_CLIENT } from './constant';
-import { UsersController } from './controllers/users/users.controller';
-import { UsersService } from './services/users/users.service';
-
+import { AUTH_CLIENT } from '../../../../common/constants';
+import { UsersController } from './users/users.controller';
+import { UsersService } from './users/users.service';
 
 @Module({
   imports: [

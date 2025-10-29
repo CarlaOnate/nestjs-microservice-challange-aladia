@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { USER_PATTERNS } from '@app/contracts';
+import { USER_PATTERNS } from '../../../common/constants';
 import { MessagePattern } from '@nestjs/microservices';
 
 @Controller('users') // For organization purposes

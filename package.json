@@ -75,9 +75,6 @@
     "roots": [
       "<rootDir>/apps/",
       "<rootDir>/libs/"
-    ],
-    "moduleNameMapper": {
-      "^@app/contracts(|/.*)$": "<rootDir>/libs/contracts/src/$1"
-    }
+    ]
   }
 }

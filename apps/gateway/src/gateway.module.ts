@@ -6,11 +6,11 @@ import { AuthenticationModule } from './authentication/authentication.module';
 
 @Module({
   imports: [
-    AuthenticationModule,
     ConfigModule.forRoot({
       envFilePath: 'apps/gateway/.env',
       isGlobal: true,
     }),
+    AuthenticationModule,
   ],
   controllers: [GatewayController],
   providers: [GatewayService],

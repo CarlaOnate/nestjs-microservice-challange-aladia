@@ -1,8 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { AUTH_CLIENT } from '../../constant';
+import { USER_PATTERNS, AUTH_CLIENT } from '../../../../../common/constants';
 import { ClientProxy } from '@nestjs/microservices';
-import { USER_PATTERNS,
-  UserDto as ClientUserDto } from '@app/contracts';
+import { UserDto as ClientUserDto } from '../../../../../common/dto';
 
 @Injectable()
 export class UsersService {
