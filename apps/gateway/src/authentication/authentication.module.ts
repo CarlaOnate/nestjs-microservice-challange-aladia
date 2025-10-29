@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { AuthenticationService } from './authentication.service';
-import { AuthenticationController } from './authentication.controller';
+import { AuthenticationService } from './services/auth/authentication.service';
+import { AuthenticationController } from './controllers/auth/authentication.controller';
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
