@@ -1,24 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { AUTH_CLIENT } from '../../constant';
+import { ClientProxy } from '@nestjs/microservices';
+import { USER_PATTERNS,
+  UserDto as ClientUserDto } from '@app/contracts';
 
 @Injectable()
 export class UsersService {
-  dummyUsers = [
-    {
-      id: "dummyUUID",
-      firstName: "Elchi",
-      lastName: "Penchi",
-      email: "elchi@gmail.com",
-      password: "1234password"
-    },  {
-      id: "dummyUUID-2",
-      firstName: "Sphy",
-      lastName: "Inaty",
-      email: "sphy@gmail.com",
-      password: "1234password"
-    }
-  ]
+  constructor(@Inject(AUTH_CLIENT) private authClient: ClientProxy) {}
 
   findAll() {
-    return this.dummyUsers;
+    return this.authClient.send<ClientUserDto[]>(USER_PATTERNS.FIND_ALL, {});
   }
 }
