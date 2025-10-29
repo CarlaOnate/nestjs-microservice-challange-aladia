@@ -4,16 +4,16 @@ import {Prop, Schema, SchemaFactory} from '@nestjs/mongoose';
 export class User {
   _id: string;  // Key handled by mongoose
 
-  @Prop()
+  @Prop({ required: true })
   firstName: string;
 
-  @Prop()
+  @Prop({ required: true })
   lastName: string;
 
-  @Prop()
+  @Prop({ required: true })
   email: string;
 
-  @Prop()
+  @Prop({ required: true })
   password: string;
 }
 
