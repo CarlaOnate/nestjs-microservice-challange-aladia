@@ -14,7 +14,7 @@
       "type": "application",
       "root": "apps/authentication",
       "entryFile": "main",
-      "sourceRoot": "apps/authentication/src",
+      "sourceRoot": "apps/authentication/",
       "compilerOptions": {
         "tsConfigPath": "apps/authentication/tsconfig.app.json"
       }

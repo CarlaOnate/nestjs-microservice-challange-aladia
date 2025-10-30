@@ -1,34 +1,31 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Post, Body, Get, Request, UseGuards } from '@nestjs/common';
 import { AuthenticationService } from './authentication.service';
-import { CreateAuthenticationDto } from './dto/create-authentication.dto';
-import { UpdateAuthenticationDto } from './dto/update-authentication.dto';
+import { RegisterUserDto } from './users/dto/register-user.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { Public } from '../../../../core/decorators/public.decorator';
+import { type RequestWithUser } from '../../../../common/definitions';
 
-@Controller('authentication')
+@Controller('auth')
 export class AuthenticationController {
   constructor(private readonly authenticationService: AuthenticationService) {}
 
-  @Post()
-  create(@Body() createAuthenticationDto: CreateAuthenticationDto) {
-    return this.authenticationService.create(createAuthenticationDto);
-  }
-
+  @Public()
   @Get()
-  findAll() {
-    return this.authenticationService.findAll();
+  heartbeat() {
+    return this.authenticationService.heartbeat();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authenticationService.findOne(+id);
+  @Public()
+  @Post('register')
+  create(@Body() createAuthenticationDto: RegisterUserDto) {
+    return this.authenticationService.register(createAuthenticationDto);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthenticationDto: UpdateAuthenticationDto) {
-    return this.authenticationService.update(+id, updateAuthenticationDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.authenticationService.remove(+id);
+  @Public()
+  @UseGuards(AuthGuard('local'))
+  @Post('login')
+  login(@Request() req: RequestWithUser) {
+    return this.authenticationService.login(req.user);
   }
 }
+
