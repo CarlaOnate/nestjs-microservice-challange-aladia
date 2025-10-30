@@ -10,6 +10,14 @@ export class UsersService {
     return this.userRepository.create(registerUserDto);
   }
 
+  findOneByEmail(email: string) {
+    return this.userRepository.findOne({ email: email }); // password=true to return user with password field
+  }
+
+  findOneByEmailForAuth(email: string) {
+    return this.userRepository.findOneForAuth({ email: email }); // password=true to return user with password field
+  }
+
   findAll() {
     return this.userRepository.findAll();
   }

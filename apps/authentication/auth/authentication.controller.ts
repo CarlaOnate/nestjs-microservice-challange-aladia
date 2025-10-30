@@ -17,4 +17,9 @@ export class AuthenticationController {
   register(@Payload() registerUserDto: RegisterUserDto) {
     return this.authenticationService.register(registerUserDto);
   }
+
+  @MessagePattern(AUTH_PATTERNS.VALIDATE_USER)
+  validateUser(@Payload() user: Pick<RegisterUserDto, 'email' | 'password'>) {
+    return this.authenticationService.validateUser(user.email, user.password);
+  }
 }
