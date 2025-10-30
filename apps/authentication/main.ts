@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AuthenticationModule } from './auth/authentication.module';
 import { MicroserviceOptions, RpcException, Transport } from '@nestjs/microservices';
 import { ValidationPipe } from '@nestjs/common';
-import { TransformUserInterceptor } from '../../common/interceptors/transform-user-interceptor';
+import { TransformUserInterceptor } from '../../core/interceptors/transform-user-interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(

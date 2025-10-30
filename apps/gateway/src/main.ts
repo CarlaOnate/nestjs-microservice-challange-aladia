@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { GatewayModule } from './gateway.module';
 import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
-import { TransformGatewayInterceptor } from '../../../common/interceptors/transform-gateway-interceptor';
+import { TransformGatewayInterceptor } from '../../../core/interceptors/transform-gateway-interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(GatewayModule);

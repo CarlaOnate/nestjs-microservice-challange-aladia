@@ -8,8 +8,16 @@ import { User } from './entities/user.entity';
 export class UserRepository {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
-  async create(registerUserDto: RegisterUserDto) {
+  async create(registerUserDto: RegisterUserDto): Promise<User> {
     return await this.userModel.create(registerUserDto);
+  }
+
+  async findOne(query: Partial<UserDto>) {
+    return await this.userModel.findOne(query).exec();
+  }
+
+  async findOneForAuth(query: Pick<UserDto, 'email'>) {
+    return await this.userModel.findOne(query).select('+password').exec();
   }
 
   async findAll() {

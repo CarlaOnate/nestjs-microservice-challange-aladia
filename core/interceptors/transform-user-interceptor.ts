@@ -2,7 +2,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
-import { UserDto } from '../dto';
+import { UserDto } from '../../common/dto';
 
 @Injectable()
 export class TransformUserInterceptor implements NestInterceptor {
