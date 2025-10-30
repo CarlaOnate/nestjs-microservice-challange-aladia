@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { RegisterUserDto } from './users/dto/register-authentication.dto';
+import { RegisterUserDto } from './users/dto/register-user.dto';
 import { AUTH_PATTERNS, AUTH_CLIENT } from '../../../../common/constants';
 import { ClientProxy } from '@nestjs/microservices';
 import { UserDto as ClientUserDto,
