@@ -1,3 +1,3 @@
-export * from './authentication/user-authentication.dto';
-export * from './authentication/register-user-authentication.dto';
-export * from './authentication/update-authentication.dto';
+export * from './authentication/user.dto';
+export * from './authentication/register-user.dto';
+export * from './authentication/update-user.dto';
